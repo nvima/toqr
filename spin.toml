@@ -1,0 +1,14 @@
+spin_version = "1"
+authors = ["nvima"]
+description = "a link to qr code serverless wasm go project"
+name = "toqr"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "toqr"
+source = "main.wasm"
+[component.trigger]
+route = "/..."
+[component.build]
+command = "tinygo build -wasm-abi=generic -target=wasi -gc=leaking -no-debug -o main.wasm main.go"
